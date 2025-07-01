@@ -4,7 +4,8 @@ const XLSX = require("xlsx");
 
 // Input/Output file paths
 const togglFile = "toggl.csv";
-const outputFile = "Converted_Timesheet.xlsx";
+const dateNow = Date.now();
+const outputFile = `output/${dateNow}/Converted_Timesheet.xlsx`;
 
 // Read CSV and process entries
 const results = [];
@@ -64,7 +65,15 @@ fs.createReadStream(togglFile)
     const worksheet = XLSX.utils.json_to_sheet(results);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+    fs.mkdirSync(`output/${dateNow}/`, { recursive: true });
     XLSX.writeFile(workbook, outputFile);
+
+    const historicalDir = "historical";
+    if (!fs.existsSync(historicalDir)) {
+      fs.mkdirSync(historicalDir);
+    }
+    const targetPath = `${historicalDir}/toggl.csv`;
+    fs.renameSync(togglFile, targetPath);
 
     console.log(`✅ Conversion complete! File saved as: ${outputFile}`);
   });
