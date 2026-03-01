@@ -1,0 +1,30 @@
+{
+  "inputFile": "toggl.csv",
+  "outputDir": "output",
+  "historicalDir": "historical",
+
+  "togglProject": "Munich RE",
+  "entelectProject": "R - Munich Re - TAU and CLARA",
+
+  "projectCategories": [
+    "Admin",
+    "Development",
+    "Analysis",
+    "Meetings",
+    "External Delays",
+    "Onboarding"
+  ],
+
+  "workedFromRules": {
+    "Entelect": ["Tuesday", "Thursday"],
+    "Client" : [],
+    "Home":["Monday", "Wednesday", "Friday"],
+    "Other" : []
+  },
+
+  "defaults": {
+    "Billable": "Yes",
+    "Sentiment": "Neutral",
+    "TicketNumber": ""
+  }
+}
