@@ -33,10 +33,11 @@
   - Data export is inside repo folder and renamed to togglProject value
   - Config file is configured as necessary
 - Then open a terminal in the root folder of the repo
-- (First time only) Run 'node install'
+- (First time only) Run 'npm install'
 - Run 'node converter.js'
 - If all goes well, then a message like this will print in the terminal:
   - ✅ Conversion complete! File saved as: output/1772363689344/Converted_Timesheet.xlsx
+  - Hint: You can click on the path printed there to navigate to the file straight-away!
 - If all does not go well, then your entries probably include an entry that doesn't include the values of togglProject or projectCategories
   - Catering for multiple different types of projects is still on my TODO list 😊
  
